@@ -1,4 +1,4 @@
-docker-compose build && docker-compose up -d && docker-compose logs -f
+docker-compose build && docker-compose up -d && docker exec -it nodejs expo init PlantManager
 
 
 
