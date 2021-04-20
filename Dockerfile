@@ -35,7 +35,7 @@ USER root
 RUN rm -rf react_native_app
 
 WORKDIR /opt/PlantManager
-ENV PATH /opt/PlantManager/.bin:$PATH
+# ENV PATH /opt/PlantManager/.bin:$PATH
 
 # COPY ./react_native_app/package.json ./react_native_app/package-lock.json ./
 # RUN npm install
