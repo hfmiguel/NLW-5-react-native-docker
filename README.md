@@ -1,7 +1,7 @@
 # node-js-docker
 Simples container para usar aplicações react em docker. 
 
-### Para iniciar o projeto , rode no terminal o arquivo ./installService.sh
+### Para iniciar o projeto , rode no terminal o arquivo ./firstRun.sh
 
 #### Para se conectar ao container e poder executar os comandos, use:
 #### docker exec -it nodejs bash
