@@ -1,6 +1,6 @@
 # pull base image
-# FROM node:14
-FROM node:14.13.1-buster-slim
+FROM node:14
+# FROM node:14.13.1-buster-slim
 
 # set our node environment, either development or production
 # defaults to production, compose overrides this to development on build and run
@@ -16,6 +16,12 @@ EXPOSE $PORT 19001 19002
 ENV NPM_CONFIG_PREFIX=/home/node/.npm-global
 ENV PATH /home/node/.npm-global/bin:$PATH
 
+
+RUN echo "fs.inotify.max_user_instances=524288" >> /etc/sysctl.conf
+RUN echo "fs.inotify.max_user_watches=524288" >> /etc/sysctl.conf
+RUN echo "fs.inotify.max_queued_events=524288" >> /etc/sysctl.conf
+
+RUN apt-get -qq update && apt-get -qq -y install bzip2
 
 RUN npm cache verify
 RUN npm cache clean --force
@@ -45,4 +51,4 @@ WORKDIR /opt/PlantManager
 # COPY ./react_native_app .
 # ENTRYPOINT ["npm", "run"]
 
-CMD ["node"]
+CMD ["npm"]
