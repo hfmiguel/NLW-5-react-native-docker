@@ -10,7 +10,7 @@ ENV NODE_ENV $NODE_ENV
 # default to port 19006 for node, and 19001 and 19002 (tests) for debug
 ARG PORT=19006
 ENV PORT $PORT
-EXPOSE $PORT 19001 19002
+EXPOSE $PORT 19001 19002 3333
 
 # install global packages
 ENV NPM_CONFIG_PREFIX=/home/node/.npm-global
@@ -26,7 +26,8 @@ RUN apt-get -qq update && apt-get -qq -y install bzip2
 RUN npm cache verify
 RUN npm cache clean --force
 RUN npm i --unsafe-perm -g npm@latest
-RUN yarn global add expo-cli
+RUN npm install -g expo-cli
+RUN npm install -g json-server
 
 # RUN npm add babel-preset-expo
 
@@ -51,4 +52,4 @@ WORKDIR /opt/PlantManager
 # COPY ./react_native_app .
 # ENTRYPOINT ["npm", "run"]
 
-CMD ["npm"]
+CMD ["node"]
