@@ -5,6 +5,7 @@
 #### Reiniciar container : ./restart.sh
 #### Rebuildar o container : ./rebuild.sh
 #### Acessar o container: ./container.sh
+#### Iniciar o json-server: ./startJsonServer.sh
 ### Para iniciar o projeto , rode no terminal o arquivo ./firstRun.sh
 #### Ele ira buildar o container , criar um projeto de nome "PlantManager" dentro da pasta Projetos
 #### Caso queira alterar o nome do seu projeto , troque todas as ocorrencias de "PlantManager" no aquivo Dockerfile
@@ -14,3 +15,7 @@
 #### Como é um container , você deverá alterar o IP do seu expo para poder acessar com seu celular , ou passar o parametro -w que inicia o expo em modo web ( ai basta acessar seu ip:19006 )
 #### Para alterar o IP do seu expo server , execute o comando abaixo conectado ao container
 ##### export REACT_NATIVE_PACKAGER_HOSTNAME=SEU_IP
+
+
+## Para o server json , devemos recuperar o IP do container para usar ao instanciar o server
+#### docker inspect -f \ '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' nodejs

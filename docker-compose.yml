@@ -14,11 +14,12 @@ services:
       - NOMEPROJETO=PlantManager
     tty: true
     ports:
-      - '19006:19006'
+      - '19000:19000'
       - '19001:19001'
       - '19002:19002'
-      - '19000:19000'
+      - '19006:19006'
       - '3333:3333'
+      - '3000:3000'
     volumes:
       - './Projetos:/opt'
     healthcheck:
